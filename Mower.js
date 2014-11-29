@@ -77,14 +77,43 @@ Mower.prototype.move = function() {
 
 };
 
-//Initating a Mower
-var mower1 = new Mower('N',0,0);
+function unitaryRotationTests() {
+	//Check If Rotation OK:
+	var mower = new Mower('N',0,0);
+	mower.rotate('G');
+	mower.rotate('G');
+	mower.rotate('G');
+	mower.rotate('G');
 
-//Moving a Mower
-mower1.move();
-mower1.rotate('G');
-mower1.rotate('R');
-mower1.rotate('R');
-mower1.rotate('G');
+	if(mower.direction != 'N'){
+		console.log('test-1 KO on Rotation');
+	}
 
-console.log(mower1.getInfo());
+	var mower = new Mower('N',0,0);
+	mower.rotate('G');
+	mower.rotate('G');
+
+	if(mower.direction != 'S'){
+		console.log('test-2 KO on Rotation');
+	}
+
+	var mower = new Mower('N',0,0);
+	mower.rotate('A');
+	mower.rotate('A');
+
+	if(mower.direction != 'S'){
+		console.log('test-3 KO on Rotation');
+	}
+
+	var mower = new Mower('N',0,0);
+	mower.rotate('A');
+	mower.rotate('A');
+	mower.rotate('A');
+	mower.rotate('A');
+
+	if(mower.direction != 'N'){
+		console.log('test-4 KO on Rotation');
+	}
+}
+
+unitaryRotationTests();
