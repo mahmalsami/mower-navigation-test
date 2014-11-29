@@ -53,25 +53,25 @@ Mower.prototype.move = function() {
 		case 'N' :
 			mower.Y += 1;
 		//mower.X = 1;
-		console.log('moving North');
+		//console.log('moving North');
 		break;
 
 		case 'E' :
 			mower.X += 1;
 		//mower.X = 1;
-		console.log('moving East');
+		//console.log('moving East');
 		break;
 
 		case 'W' :
 			mower.X -= 1;
 		//mower.X = 1;
-		console.log('moving West');
+		//console.log('moving West');
 		break;
 
 		case 'S' :
 			mower.Y -= 1;
 		//mower.X = 1;
-		console.log('moving South');
+		//console.log('moving South');
 		break;
 	}
 
@@ -80,6 +80,7 @@ Mower.prototype.move = function() {
 function unitaryRotationTests() {
 	//Check If Rotation OK:
 	var mower = new Mower('N',0,0);
+	mower.getInfo();
 	mower.rotate('G');
 	mower.rotate('G');
 	mower.rotate('G');
@@ -116,4 +117,28 @@ function unitaryRotationTests() {
 	}
 }
 
+function unitaryMovingTests() {
+	var mower = new Mower('N',0,0);
+	mower.getInfo();
+
+	mower.rotate('G');
+	mower.move();
+	mower.move();
+
+	if(mower.X != -2){
+		console.log('test-5 KO on Rotation');
+	}
+
+	mower.rotate('G');
+	mower.move();
+
+	mower.rotate('A');
+	mower.move();
+
+	mower.rotate('A');
+	mower.move();
+	console.log(mower.getInfo());
+}
+
 unitaryRotationTests();
+unitaryMovingTests();
