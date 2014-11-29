@@ -46,7 +46,9 @@ Mower.prototype.move = function() {
 
 };
 
+//Initating a Mower
 var mower1 = new Mower('N',0,0);
 
+//Moving a Mower
 mower1.move();
 console.log(mower1.getInfo());
