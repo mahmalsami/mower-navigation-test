@@ -148,7 +148,7 @@ function unitaryMovingTests() {
 	mower.move();
 	mower.move();
 
-	if(mower.X != -2){
+	if(mower.X != 0){
 		console.log('test-5 KO on Rotation');
 	}
 
