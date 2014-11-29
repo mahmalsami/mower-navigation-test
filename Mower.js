@@ -87,6 +87,19 @@ Mower.prototype.move = function() {
 
 };
 
+Mower.prototype.process = function (sequence) {
+	var mower = this;
+	var sequenceTab = sequence.split(" ");
+	for(var i=0;i<sequenceTab.length;i++){
+		if(sequenceTab[i] == 'A') {
+			mower.move();
+		}else{ //CASE G OR D
+			mower.rotate(sequenceTab[i]);
+		}
+	}
+}
+
+
 function unitaryRotationTests() {
 	//Check If Rotation OK:
 	var mower = new Mower('N',0,0,5,5);
@@ -158,5 +171,28 @@ function unitaryMovingTests() {
 	console.log(mower.getInfo());
 }
 
-unitaryRotationTests();
-unitaryMovingTests();
+
+function specificationValidation() {
+	var mower1 = new Mower('N',1,2,5,5);
+	mower1.process('G A G A G A G A A');
+
+	if(mower1.X != 1 || mower1.Y != 3 || mower1.direction !='N'){
+		console.log('mainTest-1 KO');
+	}else{
+		console.log(mower1.getInfo());
+	}
+
+	var mower2 = new Mower('E',3,3,5,5);
+	mower2.process('A A D A A D A D D A');
+
+	if(mower2.X != 5 || mower2.Y != 1 || mower2.direction !='E'){
+		console.log('mainTest-2 KO');
+	}else{
+		console.log(mower2.getInfo());
+	}
+}
+
+	unitaryRotationTests();
+	unitaryMovingTests();
+
+	specificationValidation();
