@@ -109,18 +109,18 @@ function unitaryRotationTests() {
 	}
 
 	var mower = new Mower('N',0,0);
-	mower.rotate('A');
-	mower.rotate('A');
+	mower.rotate('D');
+	mower.rotate('D');
 
 	if(mower.direction != 'S'){
 		console.log('test-3 KO on Rotation');
 	}
 
 	var mower = new Mower('N',0,0);
-	mower.rotate('A');
-	mower.rotate('A');
-	mower.rotate('A');
-	mower.rotate('A');
+	mower.rotate('D');
+	mower.rotate('D');
+	mower.rotate('D');
+	mower.rotate('D');
 
 	if(mower.direction != 'N'){
 		console.log('test-4 KO on Rotation');
@@ -142,10 +142,10 @@ function unitaryMovingTests() {
 	mower.rotate('G');
 	mower.move();
 
-	mower.rotate('A');
+	mower.rotate('D');
 	mower.move();
 
-	mower.rotate('A');
+	mower.rotate('D');
 	mower.move();
 	mower.move();
 	mower.move();
